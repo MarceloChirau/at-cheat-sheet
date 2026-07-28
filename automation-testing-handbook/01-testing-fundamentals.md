@@ -58,18 +58,21 @@ Although these terms are often used together, they answer different questions.
 These three terms are closely related but describe different stages of a problem.
 
 ### Error
- A human mistake made during development.
- Example:
- A developer accidentally writes:
+A human mistake made during development.
+Example:
+A developer accidentally writes:  
 
- ```javascript
+
+```javascript
  if (age>18)
- ```
- instead of 
+```
 
- ```javascript
+instead of  
+
+
+```javascript
  if (age>=18)
- ```
+```
 
 ---
 
@@ -189,7 +192,7 @@ Usually includes:
 
 
 ## Test strategy
-A high-lecel approach that defines **how the organistation performs testing**.
+A high-lecel approach that defines **how the organisation performs testing**.
 
 It usually includes:
 - Testing levels
