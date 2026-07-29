@@ -1,6 +1,7 @@
 {
   "name": "epam-task",
   "devDependencies": {
+    "@faker-js/faker": "^10.5.0",
     "@wdio/cli": "^9.29.1",
     "@wdio/local-runner": "^9.29.1",
     "@wdio/mocha-framework": "^9.29.1",
