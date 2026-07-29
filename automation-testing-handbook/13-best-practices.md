@@ -43,6 +43,8 @@ Examples:
 await browser.url("/login");
 
 const email = faker.internet.email();
+//or 
+// const password=faker.internet.password();
 const password = "Password123!";
 ```
 
