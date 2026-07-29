@@ -59,7 +59,11 @@ automation-framework/
 
 ---
 
+
+
 # 1. tests/
+
+
 
 ## Purpose
 
@@ -106,6 +110,8 @@ describe("Login functionality", () => {
 
 ---
 
+
+
 ## What belongs here?
 
 ✅ Test scenarios  
@@ -123,7 +129,11 @@ Those belong in other layers.
 
 ---
 
+
+
 # 2. pages/
+
+
 
 ## Purpose
 
@@ -141,7 +151,7 @@ await browser.click("#login-button");
 await browser.setValue("#email", "test@test.com");
 ```
 
-inside every test, we create:
+inside every page, we create:
 
 ```
 pages/
@@ -182,6 +192,8 @@ module.exports = new LoginPage();
 
 ---
 
+
+
 ## Benefits
 
 - reusable code
@@ -207,7 +219,11 @@ With Page Objects:
 
 ---
 
+
+
 # 3. helpers/
+
+
 
 ## Purpose
 
@@ -246,7 +262,11 @@ module.exports = {
 
 ---
 
+
+
 ## Difference between pages and helpers
+
+
 
 ### pages/
 
@@ -266,6 +286,8 @@ select dropdown
 
 ---
 
+
+
 ### helpers/
 
 Responsible for:
@@ -284,7 +306,11 @@ Prepare test environment
 
 ---
 
+
+
 # 4. utils/
+
+
 
 ## Purpose
 
@@ -321,6 +347,8 @@ function generateEmail(){
 
 ---
 
+
+
 ## Wait utility
 
 ```javascript
@@ -335,7 +363,11 @@ function wait(seconds){
 
 ---
 
+
+
 # 5. fixtures/
+
+
 
 ## Purpose
 
@@ -394,7 +426,11 @@ Clear cookies
 
 ---
 
+
+
 # 6. config/
+
+
 
 ## Purpose
 
@@ -439,7 +475,11 @@ module.exports = {
 
 ---
 
+
+
 # 7. reports/
+
+
 
 ## Purpose
 
@@ -487,7 +527,11 @@ login-error.png
 
 ---
 
+
+
 # 8. constants/
+
+
 
 ## Purpose
 
@@ -543,7 +587,11 @@ Benefits:
 
 ---
 
+
+
 # 9. data/
+
+
 
 ## Purpose
 
@@ -601,6 +649,8 @@ Benefits:
 
 ---
 
+
+
 # Dependencies
 
 A framework usually depends on several tools.
@@ -649,6 +699,8 @@ Chrome / Firefox
 
 ---
 
+
+
 # package.json
 
 Defines:
@@ -683,6 +735,8 @@ Example:
 ```
 
 ---
+
+
 
 # Dependency Flow
 
@@ -721,6 +775,8 @@ Browser
 ```
 
 ---
+
+
 
 # Framework Data Flow
 
@@ -772,6 +828,8 @@ Application
 
 ---
 
+
+
 # Example Data Flow
 
 User login test:
@@ -811,6 +869,8 @@ Website Login Page
 ```
 
 ---
+
+
 
 # Execution Flow
 
@@ -877,6 +937,8 @@ Browser closes
 
 ---
 
+
+
 # Complete Framework Architecture
 
 ```
@@ -941,6 +1003,8 @@ Execution results
 
 ---
 
+
+
 # Why This Architecture Is Important
 
 A good framework should be:
@@ -965,11 +1029,15 @@ All tests continue working
 
 ---
 
+
+
 ## Scalable
 
 New tests can be added without creating duplicated code.
 
 ---
+
+
 
 ## Readable
 
@@ -983,6 +1051,8 @@ where data comes from
 
 ---
 
+
+
 ## Reliable
 
 Clear separation reduces:
@@ -993,6 +1063,8 @@ Clear separation reduces:
 
 ---
 
+
+
 # Interview Explanation
 
 If asked:
@@ -1002,3 +1074,4 @@ If asked:
 Answer:
 
 > "My automation framework follows a layered architecture based on the Page Object Model. Tests contain only test scenarios and assertions. Page objects handle UI interactions. Helpers contain reusable business workflows. Utilities provide generic functions. Fixtures manage setup and cleanup. Configuration stores environment settings, while data and constants keep test information separated from logic. The execution starts from the test runner, loads fixtures, executes tests through page objects, interacts with the browser automation layer, and finally generates reports."
+
