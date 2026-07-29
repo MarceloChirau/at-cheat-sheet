@@ -1,4 +1,3 @@
-
 # WebdriverIO (WDIO) – Complete Guide
 
 WebdriverIO is a modern **browser automation framework** built on top of the WebDriver protocol and Chrome DevTools. It is widely used for UI testing, end-to-end testing, and automation of web applications.
@@ -7,7 +6,7 @@ WebdriverIO is a modern **browser automation framework** built on top of the Web
 
 # 1. Architecture
 
-WebdriverIO follows a layered architecture:
+WebdriverIO follows a layered architecture: 
 
 ```text
 Test Scripts
@@ -25,6 +24,16 @@ Browser Driver (ChromeDriver / GeckoDriver)
 Browser (Chrome / Firefox / Edge)
 ```
 
+```mermaid
+flowchart LR
+A[Test Scripts] --> B[WebdriverIO Test Runner]
+B --> C[WebDriver/DevTools Protocol]
+C --> D[Browser Driver(ChromeDriver/GeckoDriver)]
+D --> E[Browser(Chrome/Firefox/Edge)]
+```
+
+
+
 ### Key Components
 
 - **Test Runner** → Executes test files
@@ -38,13 +47,15 @@ Browser (Chrome / Firefox / Edge)
 
 WebdriverIO supports both execution engines.
 
-| Feature | Selenium | DevTools |
-|----------|----------|----------|
-| Protocol | WebDriver | Chrome DevTools Protocol |
-| Speed | Slower | Faster |
-| Browser Support | All major browsers | Chrome-based browsers |
-| Stability | High | Very high (modern apps) |
-| Use Case | Cross-browser testing | Fast Chrome automation |
+
+| Feature         | Selenium              | DevTools                 |
+| --------------- | --------------------- | ------------------------ |
+| Protocol        | WebDriver             | Chrome DevTools Protocol |
+| Speed           | Slower                | Faster                   |
+| Browser Support | All major browsers    | Chrome-based browsers    |
+| Stability       | High                  | Very high (modern apps)  |
+| Use Case        | Cross-browser testing | Fast Chrome automation   |
+
 
 ### Selenium Mode
 
@@ -302,12 +313,14 @@ exports.config = {
 
 ### Common Hooks
 
-| Hook | Purpose |
-|------|--------|
-| before | Runs once before all tests |
-| beforeEach | Runs before each test |
-| afterEach | Runs after each test |
-| after | Runs once after all tests |
+
+| Hook       | Purpose                    |
+| ---------- | -------------------------- |
+| before     | Runs once before all tests |
+| beforeEach | Runs before each test      |
+| afterEach  | Runs after each test       |
+| after      | Runs once after all tests  |
+
 
 ---
 
@@ -443,23 +456,19 @@ describe("Login Test", () => {
 
 # Summary
 
-| Feature | Description |
-|--------|-------------|
-| Architecture | Layered system: Test → WDIO → Driver → Browser |
-| Selenium vs DevTools | Cross-browser vs fast Chrome automation |
-| Configuration | Central `wdio.conf.js` file |
-| Browser Commands | Control navigation and browser state |
-| Element Commands | Interact with UI elements |
-| Waits | Handle async UI behavior |
-| Selectors | Locate elements in DOM |
-| Hooks | Lifecycle control |
-| Services | Extend functionality |
-| Reporters | Test result formatting |
-| Parallel Execution | Run tests concurrently |
-````
 
-If you want next step, we can extend this ecosystem further with:
+| Feature              | Description                                    |
+| -------------------- | ---------------------------------------------- |
+| Architecture         | Layered system: Test → WDIO → Driver → Browser |
+| Selenium vs DevTools | Cross-browser vs fast Chrome automation        |
+| Configuration        | Central `wdio.conf.js` file                    |
+| Browser Commands     | Control navigation and browser state           |
+| Element Commands     | Interact with UI elements                      |
+| Waits                | Handle async UI behavior                       |
+| Selectors            | Locate elements in DOM                         |
+| Hooks                | Lifecycle control                              |
+| Services             | Extend functionality                           |
+| Reporters            | Test result formatting                         |
+| Parallel Execution   | Run tests concurrently                         |
 
-✅ Playwright vs WebdriverIO comparison
-✅ WDIO + Cucumber BDD setup
-✅ or a full “WebdriverIO architecture Mermaid diagram”
+
