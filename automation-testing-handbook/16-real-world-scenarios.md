@@ -17,7 +17,7 @@ A good automation engineer needs to understand how to handle real-world situatio
 
 ---
 
-# 01. Login Flow with MFA
+# 01. Login Flow with MFA(Multi-Factor Authentication)
 
 ## Scenario
 
@@ -41,6 +41,8 @@ Access application
 
 ---
 
+
+
 ## Challenge
 
 Traditional automation:
@@ -61,7 +63,11 @@ does not work because MFA requires:
 
 ---
 
+
+
 # Possible Solutions
+
+
 
 ## 1. Disable MFA in test environment
 
@@ -92,6 +98,8 @@ Dashboard
 
 ---
 
+
+
 ## 2. Use Test MFA Provider
 
 The application provides a test API:
@@ -119,6 +127,8 @@ await loginPage.enterCode(code);
 
 ---
 
+
+
 ## 3. Use API Authentication
 
 Instead of logging through UI:
@@ -141,13 +151,19 @@ Continue Testing
 
 ---
 
+
+
 ## Interview Answer
 
 > "For MFA automation, I avoid automating external systems like SMS providers. Usually we disable MFA in test environments, use test accounts with predictable codes, or authenticate through APIs when possible."
 
 ---
 
+
+
 # 02. Handling Dynamic Elements
+
+
 
 ## Scenario
 
@@ -171,6 +187,8 @@ Login
 
 ---
 
+
+
 # Bad Approach
 
 Using dynamic selectors:
@@ -185,7 +203,11 @@ The test will break.
 
 ---
 
+
+
 # Better Approaches
+
+
 
 ## Use stable attributes
 
@@ -210,6 +232,8 @@ await $(
 
 ---
 
+
+
 ## Use text selectors
 
 Example:
@@ -220,6 +244,8 @@ await page.getByText("Login")
 ```
 
 ---
+
+
 
 ## Use relative selectors
 
@@ -235,6 +261,8 @@ Form
 ```
 
 ---
+
+
 
 # Best Practice
 
@@ -256,7 +284,11 @@ Prefer selectors in this order:
 
 ---
 
+
+
 # 03. File Uploads and Downloads
+
+
 
 # Upload Scenario
 
@@ -282,6 +314,8 @@ Verify
 
 ---
 
+
+
 ## Selenium Example
 
 ```javascript
@@ -291,6 +325,8 @@ await element.sendKeys(
 ```
 
 ---
+
+
 
 ## Playwright Example
 
@@ -303,6 +339,8 @@ await page
 ```
 
 ---
+
+
 
 # Download Scenario
 
@@ -339,6 +377,8 @@ await download.saveAs(
 
 ---
 
+
+
 # Validation
 
 Check:
@@ -350,7 +390,11 @@ Check:
 
 ---
 
+
+
 # 04. Waiting for Network Requests
+
+
 
 ## Problem
 
@@ -381,6 +425,8 @@ UI Updated
 
 ---
 
+
+
 # Bad Approach
 
 Fixed waits:
@@ -395,6 +441,8 @@ Problems:
 - unreliable tests
 
 ---
+
+
 
 # Better Approach
 
@@ -412,6 +460,8 @@ response.url()
 
 ---
 
+
+
 ## Wait for Element
 
 ```javascript
@@ -421,6 +471,8 @@ await page
 ```
 
 ---
+
+
 
 # Rule
 
@@ -436,7 +488,11 @@ Expected time
 
 ---
 
+
+
 # 05. Working with Iframes
+
+
 
 ## What is an iframe?
 
@@ -458,11 +514,32 @@ Main Page
 
 ---
 
+
+
 # Problem
 
 Normal selectors cannot access iframe elements.
 
+```html
+<iframe id="payment-frame">
+    ...
+</iframe>
+
+```
+
+
+if you try(webdriverIO):
+
+```javascript
+await $("#card").setValue("1234");
+```
+
+WebdriverIO searches in the main page, not inside the iframe, so it will fail with an error such as element not found.
+
+
 ---
+
+
 
 # Solution
 
@@ -488,6 +565,52 @@ await frame
 
 ---
 
+
+# Solution with WebdriverIO
+
+```javascript
+const frame = await $("#payment-frame");
+
+await browser.switchToFrame(frame);
+
+await $("#card").setValue("1234");
+
+
+```
+
+When you're finished interacting with the iframe, switch back to the parent document:
+
+```javascript
+await browser.switchToParentFrame();
+
+```
+
+
+# Complete Example
+
+```javascript
+
+// Locate the iframe
+const frame = await $("#payment-frame");
+
+// Switch into the iframe
+await browser.switchToFrame(frame);
+
+// Interact with elements inside the iframe
+await $("#cardNumber").setValue("4111111111111111");
+await $("#expiryDate").setValue("12/30");
+await $("#cvv").setValue("123");
+
+// Return to the main page
+await browser.switchToParentFrame();
+
+// Continue interacting with the main page
+await $("#submitOrder").click();
+
+```
+
+
+
 # Common iframe Examples
 
 - payment forms
@@ -497,7 +620,11 @@ await frame
 
 ---
 
+
+
 # 06. Multiple Browser Tabs / Windows
+
+
 
 ## Scenario
 
@@ -516,11 +643,15 @@ External Page
 
 ---
 
+
+
 # Problem
 
 Automation remains connected to the first tab.
 
 ---
+
+
 
 # Solution
 
@@ -541,6 +672,8 @@ await newPage.waitForLoadState();
 
 ---
 
+
+
 # Common Uses
 
 - OAuth login
@@ -550,7 +683,11 @@ await newPage.waitForLoadState();
 
 ---
 
+
+
 # 07. Alerts and Pop-ups
+
+
 
 ## Types
 
@@ -566,6 +703,8 @@ Prompt
 
 ---
 
+
+
 # Example
 
 Application shows:
@@ -579,6 +718,8 @@ Are you sure?
 ```
 
 ---
+
+
 
 # Handling
 
@@ -595,6 +736,8 @@ await dialog.accept();
 ```
 
 ---
+
+
 
 # Pop-up Windows
 
@@ -614,7 +757,11 @@ Handle new page event.
 
 ---
 
+
+
 # 08. Retry Strategies
+
+
 
 ## Why retries?
 
@@ -625,6 +772,8 @@ Some failures are temporary:
 - unstable environment
 
 ---
+
+
 
 # Example
 
@@ -660,6 +809,8 @@ Pass
 
 ---
 
+
+
 # Retry Configuration
 
 Example:
@@ -684,6 +835,8 @@ Third attempt
 
 ---
 
+
+
 # Important
 
 Retries should not hide real bugs.
@@ -704,7 +857,11 @@ Failure investigation
 
 ---
 
+
+
 # 09. Handling Flaky Tests
+
+
 
 ## What is a flaky test?
 
@@ -720,7 +877,11 @@ Without code changes
 
 ---
 
+
+
 # Common Causes
+
+
 
 ## Timing issues
 
@@ -740,6 +901,8 @@ Use explicit waits.
 
 ---
 
+
+
 ## Environment problems
 
 Examples:
@@ -749,6 +912,8 @@ Examples:
 - database problems
 
 ---
+
+
 
 ## Bad Test Data
 
@@ -766,7 +931,11 @@ Another test fails.
 
 ---
 
+
+
 # How to Fix Flaky Tests
+
+
 
 ## 1. Improve waits
 
@@ -784,6 +953,8 @@ waitForElement()
 
 ---
 
+
+
 ## 2. Isolate tests
 
 Each test should:
@@ -793,13 +964,19 @@ Each test should:
 
 ---
 
+
+
 ## 3. Improve selectors
 
 Avoid unstable locators.
 
 ---
 
+
+
 # 10. Parallel Execution Issues
+
+
 
 ## What is parallel execution?
 
@@ -825,6 +1002,8 @@ Profile Test
 
 ---
 
+
+
 # Benefits
 
 - faster execution
@@ -832,7 +1011,11 @@ Profile Test
 
 ---
 
+
+
 # Problems
+
+
 
 ## Shared Data
 
@@ -857,6 +1040,8 @@ Conflict.
 
 ---
 
+
+
 ## Shared Browser State
 
 Problem:
@@ -865,7 +1050,11 @@ Cookies/session overlap.
 
 ---
 
+
+
 # Solutions
+
+
 
 ## Separate test data
 
@@ -878,6 +1067,8 @@ user2@test.com
 ```
 
 ---
+
+
 
 ## Independent environments
 
@@ -893,7 +1084,11 @@ Own browser context
 
 ---
 
+
+
 # 11. CI Pipeline Failures and Debugging
+
+
 
 ## Scenario
 
@@ -911,7 +1106,11 @@ Tests fail
 
 ---
 
+
+
 # Common Reasons
+
+
 
 ## Environment Differences
 
@@ -931,6 +1130,8 @@ Chrome version 118
 
 ---
 
+
+
 ## Missing Variables
 
 Example:
@@ -949,13 +1150,19 @@ undefined
 
 ---
 
+
+
 ## Timing Differences
 
 CI machines are usually slower.
 
 ---
 
+
+
 # Debugging Process
+
+
 
 ## Step 1
 
@@ -968,6 +1175,8 @@ Element not found
 ```
 
 ---
+
+
 
 ## Step 2
 
@@ -983,6 +1192,8 @@ Login page still loading
 
 ---
 
+
+
 ## Step 3
 
 Check logs.
@@ -994,6 +1205,8 @@ API returned 500
 ```
 
 ---
+
+
 
 ## Step 4
 
@@ -1011,7 +1224,11 @@ same command
 
 ---
 
+
+
 # CI Best Practices
+
+
 
 ## Store artifacts
 
@@ -1024,6 +1241,8 @@ Save:
 
 ---
 
+
+
 ## Use headless mode
 
 Example:
@@ -1033,6 +1252,8 @@ Chrome Headless
 ```
 
 ---
+
+
 
 ## Keep environments identical
 
@@ -1047,6 +1268,8 @@ Same browser versions
 ```
 
 ---
+
+
 
 # Complete Real-World Execution Example
 
@@ -1100,6 +1323,8 @@ Generate report
 
 ---
 
+
+
 # Interview Explanation
 
 If asked:
@@ -1112,18 +1337,23 @@ Answer:
 
 ---
 
+
+
 # Key Takeaways
 
-| Challenge | Solution |
-|---|---|
-| MFA | Test accounts, API authentication |
-| Dynamic elements | Stable selectors |
-| File upload | setInputFiles/sendKeys |
-| Network waits | Wait for conditions |
-| Iframes | Switch frame context |
-| Multiple tabs | Handle new pages |
-| Alerts | Dialog handlers |
-| Retries | Limited retries |
-| Flaky tests | Better synchronization |
-| Parallel tests | Isolated data |
-| CI failures | Logs, artifacts, environment checks |
+
+| Challenge        | Solution                            |
+| ---------------- | ----------------------------------- |
+| MFA              | Test accounts, API authentication   |
+| Dynamic elements | Stable selectors                    |
+| File upload      | setInputFiles/sendKeys              |
+| Network waits    | Wait for conditions                 |
+| Iframes          | Switch frame context                |
+| Multiple tabs    | Handle new pages                    |
+| Alerts           | Dialog handlers                     |
+| Retries          | Limited retries                     |
+| Flaky tests      | Better synchronization              |
+| Parallel tests   | Isolated data                       |
+| CI failures      | Logs, artifacts, environment checks |
+
+
