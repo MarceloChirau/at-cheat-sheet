@@ -13,18 +13,103 @@ This document contains common interview questions for QA Automation Engineers.
 The goal is to identify defects before the software reaches users and to improve the overall quality,reliability and maintainability of the product.*
 
 
-1. Why is software testing important?
-2. What is the difference between verification and validation?
-3. What is the difference between an error, defect, bug, and failure?
-4. What is the Software Testing Life Cycle (STLC)?
-5. What is the Software Development Life Cycle (SDLC)?
-6. What is a test case?
-7. What is a test suite?
-8. What is a test plan?
-9. What is a test strategy?
-10. What is an assertion?
-11. What is the Test Pyramid? 
-12. What is Shift Left Testing?
+1. **Why is software testing important?**
+Because without it:
+- software might crush unexpectedly
+- the software might produce unpredictable results
+- there might be security vulnerabilities
+- user's data mightb get lost
+- overal poor user experience
+
+2. **What is the difference between verification and validation?**
+| Verification | Validation |
+| ------------ | ---------- |
+| Are we building the product correctly | Are we building the right product |
+| Checks spefication and design | Checks user needs and expectations |
+| Usually static activities | Usually dynamic activities |
+| Happens during development | Happens after iplementantion |
+
+3. **What is the difference between an error, defect, bug, and failure?**
+Error happens because of human mistake during development, defect is a result/flaw because of an error introduced in software, and failure is the incorrect behaviour observed when the defect is executed.
+
+4. **What is the Software Testing Life Cycle (STLC)?**
+STLC is a structured process that defines the phases and activities performed by the testing team to ensure software quality.It starts with requiremnt analysis and end with test closure and reporting.
+
+```mermaid
+graph TD
+A[requirement analysis] --> B[test planning]
+B --> C[test case development]
+C --> D[test environment setup]
+D --> E[test execution]
+E --> F[test closure]
+
+```
+
+5. **What is the Software Development Life Cycle (SDLC)?**
+It is  a structured process used to plan, design, develop, test, deploy and maintain software. It describes the stages that the software product goes through from the initial idea to production and ongoing maintenance. 
+
+```mermaid
+graph TD
+A(Requirements gathering) --> B((Planning)) --> C((Design)) --> D((Development)) --> E((Testing)) --> F((Deployment)) --> G(maintainance)
+
+
+```
+
+6. **What is a test case?**
+A test case is a set of conditions used to verify one specific behaviour.
+
+7. **What is a test suite?**
+A collection of test cases.
+### Example (Authentication):
+- Valid Login(test case)
+- Invalid login (test case)
+- Locked user (test case)
+- Forgot password (test case)
+- Logout (test case)
+
+8. **What is a test plan?**
+A document that describes how testing will be performed for a project:
+Usually includes:
+- scope
+- objectives
+- schedule
+- risks
+- test environments
+- exit criterias
+
+9. **What is a test strategy?**
+A high-level approach that defines how the organisation performs testing.
+It usually includes:
+
+- Testing levels
+- Automation strategy
+- Tools
+- Risk management
+- Reporting process
+Think of it like this:
+
+```mermaid
+graph TD
+A[test strategy] --> B[test plan]
+B --> C[test cases]
+```
+
+
+10. **What is an assertion?**
+Assertion verify that the actual result matches the expected result.
+
+
+11. **What is the Test Pyramid?**
+The test pyramid describes the ideal distrubution of automated tests
+
+```mermaid
+graph BT
+A[\unit unit unit/] --> B[\integration/] --> C[\E2E/]
+
+```
+
+12. **What is Shift Left Testing?**
+Is the practice of perfoming testing activities earlier in  the software development lif cycle(sdlc) in order to find defects as soon as possible.
 
 ---
 
