@@ -9,30 +9,37 @@ This document contains common interview questions for QA Automation Engineers.
 # Testing Fundamentals
 
 1. **What is software testing?**
+
 *Software testing is the process of verifying and validating that a software application behaves as expected and meets its specified requirements.
 The goal is to identify defects before the software reaches users and to improve the overall quality,reliability and maintainability of the product.*
 
-
 1. **Why is software testing important?**
+
 Because without it:
+
 - software might crush unexpectedly
 - the software might produce unpredictable results
 - there might be security vulnerabilities
 - user's data mightb get lost
 - overal poor user experience
 
-2. **What is the difference between verification and validation?**
-| Verification | Validation |
-| ------------ | ---------- |
-| Are we building the product correctly | Are we building the right product |
-| Checks spefication and design | Checks user needs and expectations |
-| Usually static activities | Usually dynamic activities |
-| Happens during development | Happens after iplementantion |
+1. **What is the difference between verification and validation?**
 
-3. **What is the difference between an error, defect, bug, and failure?**
+
+| Verification                          | Validation                         |
+| ------------------------------------- | ---------------------------------- |
+| Are we building the product correctly | Are we building the right product  |
+| Checks spefication and design         | Checks user needs and expectations |
+| Usually static activities             | Usually dynamic activities         |
+| Happens during development            | Happens after iplementantion       |
+
+
+1. **What is the difference between an error, defect, bug, and failure?**
+
 Error happens because of human mistake during development, defect is a result/flaw because of an error introduced in software, and failure is the incorrect behaviour observed when the defect is executed.
 
-4. **What is the Software Testing Life Cycle (STLC)?**
+1. **What is the Software Testing Life Cycle (STLC)?**
+
 STLC is a structured process that defines the phases and activities performed by the testing team to ensure software quality.It starts with requiremnt analysis and end with test closure and reporting.
 
 ```mermaid
@@ -45,7 +52,10 @@ E --> F[test closure]
 
 ```
 
-5. **What is the Software Development Life Cycle (SDLC)?**
+
+
+1. **What is the Software Development Life Cycle (SDLC)?**
+
 It is  a structured process used to plan, design, develop, test, deploy and maintain software. It describes the stages that the software product goes through from the initial idea to production and ongoing maintenance. 
 
 ```mermaid
@@ -55,21 +65,29 @@ A(Requirements gathering) --> B((Planning)) --> C((Design)) --> D((Development))
 
 ```
 
-6. **What is a test case?**
+
+
+1. **What is a test case?**
+
 A test case is a set of conditions used to verify one specific behaviour.
 
-7. **What is a test suite?**
+1. **What is a test suite?**
+
 A collection of test cases.
+
 ### Example (Authentication):
+
 - Valid Login(test case)
 - Invalid login (test case)
 - Locked user (test case)
 - Forgot password (test case)
 - Logout (test case)
 
-8. **What is a test plan?**
+1. **What is a test plan?**
+
 A document that describes how testing will be performed for a project:
 Usually includes:
+
 - scope
 - objectives
 - schedule
@@ -77,7 +95,8 @@ Usually includes:
 - test environments
 - exit criterias
 
-9. **What is a test strategy?**
+1. **What is a test strategy?**
+
 A high-level approach that defines how the organisation performs testing.
 It usually includes:
 
@@ -95,11 +114,13 @@ B --> C[test cases]
 ```
 
 
-10. **What is an assertion?**
+
+1. **What is an assertion?**
+
 Assertion verify that the actual result matches the expected result.
 
+1. **What is the Test Pyramid?**
 
-11. **What is the Test Pyramid?**
 The test pyramid describes the ideal distrubution of automated tests
 
 ```mermaid
@@ -108,38 +129,82 @@ A[\unit unit unit/] --> B[\integration/] --> C[\E2E/]
 
 ```
 
-12. **What is Shift Left Testing?**
+
+
+1. **What is Shift Left Testing?**
+
 Is the practice of perfoming testing activities earlier in  the software development lif cycle(sdlc) in order to find defects as soon as possible.
 
 ---
 
+
+
 # Testing Types
 
-1. What is unit testing?
-2. What is integration testing?
-3. What is system testing?
-4. What is end-to-end testing?
-5. What is smoke testing?
-6. What is sanity testing?
-7. What is regression testing?
-8. What is acceptance testing?
-9. What is the difference between smoke and regression testing?
-10. What is the difference between system testing and end-to-end testing?
-11. What is the difference between functional and non-functional testing?
-12. What is performance testing?
-13. What is load testing?
-14. What is stress testing?
-15. What is security testing?
-16. What is accessibility testing?
-17. What is usability testing?
+1. **What is unit testing?**
+
+Is when testing the smallest testable part of a software application, usually methods or functions in isolation.
+
+## Purpose
+
+- Verify business logic
+- Catch bugs early
+- Enable safe refactoring
+- Provide fast feedback
+
+1. **What is integration testing?**
+
+Verifies that multiple components work correctly together.
+Instead of testing individual units, it tests their interactions.
+
+## Purpose
+
+Ensure communication between components.
+
+Examples:  
+
+- API<->Database
+- Frontend<->Backend
+- Service<->External API
+
+1. What is system testing?
+2. What is end-to-end testing?
+3. What is smoke testing?
+4. What is sanity testing?
+5. What is regression testing?
+6. What is acceptance testing?
+7. What is the difference between smoke and regression testing?
+8. What is the difference between system testing and end-to-end testing?
+9. **What is the difference between functional and non-functional testing?**
+
+Functional testing verifies that the software behaves according to functional requirements.
+It answers the question:
+"Does the application do what it is supposed to do?"
+
+Non-functional testing verifies how ell a system works rather than what it does. It focuses on quality such as perfomance, security, usability, reliability and scalability.
+
+1. What is performance testing?
+2. What is load testing?
+3. What is stress testing?
+4. What is security testing?
+5. What is accessibility testing?
+6. What is usability testing?
+
+
 
 ### extra
 
+
+
 ### a) api testing concepts
+
+
 
 ### b) sql basics
 
 ---
+
+
 
 # Automation Fundamentals
 
@@ -165,6 +230,8 @@ Is the practice of perfoming testing activities earlier in  the software develop
 20. What is mocking?
 
 ---
+
+
 
 # JavaScript
 
@@ -231,6 +298,8 @@ but if we do the same with var or const:
 
 ---
 
+
+
 # WebdriverIO
 
 1. What is WebdriverIO?
@@ -252,6 +321,8 @@ but if we do the same with var or const:
 
 ---
 
+
+
 # Playwright
 
 1. What is Playwright?
@@ -264,6 +335,8 @@ but if we do the same with var or const:
 
 ---
 
+
+
 # Selenium
 
 1. What is Selenium?
@@ -274,6 +347,8 @@ but if we do the same with var or const:
 6. How does Selenium communicate with browsers?
 
 ---
+
+
 
 # Jest / Mocha / Chai
 
@@ -287,6 +362,8 @@ but if we do the same with var or const:
 
 ---
 
+
+
 # BDD
 
 1. What is BDD?
@@ -298,6 +375,8 @@ but if we do the same with var or const:
 7. Given, When, Then explained.
 
 ---
+
+
 
 # CI/CD
 
@@ -312,6 +391,8 @@ but if we do the same with var or const:
 
 ---
 
+
+
 # Framework Design
 
 1. Describe your automation framework.
@@ -321,6 +402,8 @@ but if we do the same with var or const:
 5. How do you organise a large automation project?
 
 ---
+
+
 
 # Behavioural Questions
 
@@ -336,6 +419,8 @@ but if we do the same with var or const:
 10. Why do you want to work here?
 
 ---
+
+
 
 # Advanced Automation
 
@@ -362,6 +447,8 @@ but if we do the same with var or const:
 
 ---
 
+
+
 # Advanced JavaScript
 
 1. What is destructuring?
@@ -386,6 +473,8 @@ but if we do the same with var or const:
 20. What is destructuring used for in test automation?
 
 ---
+
+
 
 # Git & Version Control
 
@@ -412,6 +501,8 @@ but if we do the same with var or const:
 
 ---
 
+
+
 # Framework Architecture & Design
 
 1. How do you organise page objects?
@@ -437,6 +528,8 @@ but if we do the same with var or const:
 
 ---
 
+
+
 # Real Project & Technical Review Questions
 
 1. Walk me through your automation framework.
@@ -460,3 +553,913 @@ but if we do the same with var or const:
 19. How would you automate OTP authentication?
 20. How would you test an API and UI together?
 
+
+
+# Non-Technical Interview Preparation (QA / Automation Testing)
+
+---
+
+
+
+# 1. SDLC Methodologies
+
+
+
+## What is an SDLC methodology?
+
+An SDLC (Software Development Life Cycle) methodology is the process a team follows to develop software from requirements to maintenance.
+
+Common methodologies:
+
+- Waterfall
+- Agile(scrum, kanban)
+- Spiral
+- V-Model
+
+---
+
+
+
+# Waterfall
+
+A sequential methodology where each phase must be completed before the next one starts.
+
+```
+
+Requirements
+
+      ↓
+
+Design
+
+      ↓
+
+Development
+
+      ↓
+
+Testing
+
+      ↓
+
+Deployment
+
+```
+
+
+
+### Advantages
+
+- Easy to manage
+- Well documented
+- Good for stable requirements
+
+
+
+### Disadvantages
+
+- Difficult to change requirements
+- Bugs are found late
+- Slow feedback
+
+
+
+### When to use Waterfall?
+
+- Requirements are fixed.
+- Government projects.
+- Banking systems with strict documentation.
+- Small projects with little change.
+
+---
+
+
+
+# Agile
+
+Agile is a software development philosophy based on iterative development and continuous customer feedback.
+
+Instead of one big release, software is delivered in small increments. Its main ideas are:
+
+- Deliver working  software frequently.
+- welcome changing requirements.
+- collaborate closely with customers.
+- focus on working software.
+- continuously improve.
+
+Agile doesnt tell you:
+
+- how many meetings to have,
+- how long iterations should be,
+- who should be on the team.
+it only gives the philosophy.
+
+---
+
+
+
+# Scrum
+
+Scrum is the most popular Agile framework.
+
+Work is divided into short iterations called **Sprints** (usually 2-4 weeks).
+
+Roles:
+
+- Product Owner
+- Scrum Master
+- Development Team
+
+Events:
+
+- Sprint Planning
+- Daily Stand-up
+- Sprint Review
+- Sprint Retrospective
+
+*What is Sprint?*
+A Sprint is a fixed period of time (called a time-box) during which the Scrum Team works to complete selected Product Backlog items and deliver a working product increment.
+Typical duration:
+1 week
+2 weeks (most common)
+3 weeks
+4 weeks
+At the end of every Sprint, there should be working software.
+Example:
+Sprint Goal:
+"Implement the Login feature."
+During the next two weeks, the team works only on the Sprint Backlog.
+Interview Answer
+A Sprint is a fixed-length iteration during which the Scrum Team develops and delivers a usable product increment. Most teams use 2-week sprints.
+
+*Sprint Planning*
+Sprint Planning is the meeting that happens at the beginning of every Sprint.
+Purpose:
+Decide what will be developed.
+Decide how it will be developed.
+Define the Sprint Goal.
+Participants:
+Product Owner
+Scrum Master
+Developers
+Example
+Product Backlog:
+
+- Login
+- Registration
+- Shopping Cart
+- Payment
+The team estimates they can finish:
+✔ Login
+✔ Registration
+Those become the Sprint Backlog.
+Interview Answer
+Sprint Planning is the event where the Scrum Team selects Product Backlog items for the next Sprint, defines the Sprint Goal, and creates the Sprint Backlog.
+*Daily Scrum (Daily Stand-up)*
+What is it?
+A short meeting held every day during the Sprint.
+Maximum duration:
+15 minutes
+Purpose:
+Synchronize the team.
+Share progress.
+Identify blockers.
+Everyone usually answers three questions:
+What did I complete yesterday?
+What will I work on today?
+Do I have any blockers?
+Example:
+Developer:
+Yesterday I finished the login API.
+Today I'll work on validation.
+I'm blocked because I don't have the database access.
+Important
+The Daily Scrum is not a status meeting for the manager.
+It is for the Development Team to coordinate their work.
+Interview Answer
+The Daily Scrum is a 15-minute daily meeting where the Development Team synchronizes its work, discusses progress, plans the next 24 hours, and identifies any blockers.
+
+1. Sprint Review
+
+What is it?
+Held at the end of the Sprint.
+Purpose:
+Demonstrate the completed work.
+Gather feedback.
+Discuss what should happen next.
+Participants often include:
+Scrum Team
+Product Owner
+Stakeholders
+Customers (if appropriate)
+Example:
+The team demonstrates:
+Login
+Registration
+The customer says:
+I'd like the Login button to be larger.
+That feedback goes into the Product Backlog for a future Sprint.
+Interview Answer
+The Sprint Review is held at the end of the Sprint to present the completed increment, collect stakeholder feedback, and update the Product Backlog if necessary.
+5. Sprint Retrospective
+What is it?
+Also held at the end of the Sprint, but after the Sprint Review.
+Notice the difference:
+Sprint Review → discusses the product.
+Sprint Retrospective → discusses the team's way of working.
+Purpose:
+Improve the team's process.
+Typical discussion:
+What went well?
+What didn't go well?
+What can we improve next Sprint?
+Example:
+Good:
+Automation tests reduced bugs.
+Bad:
+Pull requests took too long to review.
+Improvement:
+Agree to review pull requests within one business day.
+*
+
+Artifacts:
+
+- product Backlog
+- sprint backlog
+- increcement
+*what is backlog:*
+Think of a backlog as a prioritized to-do list.
+It's simply a list of work that needs to be done.
+There are two important backlogs in Scrum.
+**Product backlog:**
+*This is everything the product may need*
+Examples:
+- user login 
+- registration
+- forgot password
+- shopping cart
+*the product owner is responsible for maintaining and prioritizing it.As the product evolves, new items are added, removed, or reprioritized.*
+*Sprint Backlog*
+Suppose the Product Backlog has 100 items.
+The team can't do everything in one sprint.
+During Sprint Planning, they choose a few items.
+Example:
+Product Backlog
+
+1. Login
+2. Registration
+3. Shopping Cart
+4. Payment
+5. Search
+6. Notifications
+7. Profile
+
+For the next 2-week sprint, they select:
+Sprint Backlog
+✔ Login
+✔ Registration
+✔ Search
+Those are the tasks the team commits to completing during that sprint.
+*What is the Increment?*
+After the sprint ends, if everything went well, the completed work becomes the Increment.
+For example:
+Sprint Backlog
+
+✔ Login
+✔ Registration
+✔ Search
+↓
+After two weeks:
+Working software
+
+✔ Login works
+✔ Registration works
+✔ Search works
+That's the Increment—a usable, potentially releasable piece of the product.
+
+Advantages:
+
+- Fast feedback
+- Flexible
+- Continuous improvement
+
+---
+
+
+
+# Kanban
+
+Kanban is another Agile framework focused on **continuous delivery** instead of fixed sprints.
+
+Typical Kanban Board:
+
+```
+
+To Do
+
+   ↓
+
+In Progress
+
+   ↓
+
+Testing
+
+   ↓
+
+Done
+
+```
+
+Main ideas:
+
+- Visualize work
+- Limit Work In Progress (WIP)
+-  continuous flow of work
+- Improve workflow
+
+---
+
+
+
+# Scrum vs Kanban
+
+| Scrum | Kanban |
+
+|--------|---------|
+
+| Uses Sprints | Continuous workflow |
+
+| Sprint Planning | No mandatory planning meetings |
+
+| Fixed Sprint backlog | Work items added continuously |
+
+| Roles are defined | Roles are optional |
+
+| Velocity is measured | Cycle Time & Lead Time are measured |
+
+---
+
+
+
+# Waterfall vs Scrum
+
+| Waterfall | Scrum |
+
+|-----------|--------|
+
+| Sequential | Iterative |
+
+| Requirements fixed | Requirements can change |
+
+| One release | Frequent releases |
+
+| Testing mostly at the end | Testing during every Sprint |
+
+Interview Answer:
+
+> Waterfall is suitable when requirements are stable and documentation is important. Scrum is preferred when requirements change frequently and fast customer feedback is needed.
+
+---
+
+
+
+# 2. Test Case Priority
+
+
+
+## Why do we assign priority?
+
+Not every test case has the same importance.
+
+Priority helps us decide:
+
+- Which tests to execute first
+- Which tests to automate first
+- Which tests to run when time is limited
+
+---
+
+
+
+## How do we determine priority?
+
+Factors:
+
+- Business impact
+- Risk
+- Frequently used functionality
+- Customer visibility
+- Criticality
+
+Example:
+
+High Priority:
+
+- Login
+- Checkout
+- Payment
+
+Medium Priority:
+
+- Search
+- Profile update
+
+Low Priority:
+
+- Theme selection
+- Language change
+
+---
+
+
+
+# 3. Negative Testing
+
+
+
+## What is Negative Testing?
+
+Negative testing verifies how the application behaves when users provide invalid or unexpected input.
+
+Examples:
+
+- Invalid password
+- Empty username
+- Invalid email format
+- SQL Injection attempt
+
+Why?
+
+Because users make mistakes.
+
+The application should handle invalid input gracefully without crashing.
+
+---
+
+
+
+# 4. Test Design Techniques
+
+Common techniques:
+
+- Equivalence Partitioning
+- Boundary Value Analysis
+- Decision Table Testing
+- State Transition Testing
+- Use Case Testing
+- Pairwise Testing
+- Error Guessing
+
+Example:
+
+Password length:
+
+Allowed:
+
+8-20 characters
+
+Test:
+
+- 7
+- 8
+- 20
+- 21
+
+---
+
+
+
+# 5. Defects & Bug Reports
+
+
+
+## What is a Defect?
+
+A defect is any deviation between the expected and actual behavior.
+
+A defect is usually found by QA.
+
+---
+
+
+
+## What is a Bug?
+
+A bug is the coding mistake that caused the defect.
+
+Developers usually fix bugs.
+
+In practice, people often use "bug" and "defect" interchangeably.
+
+---
+
+
+
+## Defect / Bug Report includes
+
+- Defect ID
+- Title
+- Description
+- Steps to Reproduce
+- Expected Result
+- Actual Result
+- Environment
+- Browser / Device
+- Severity
+- Priority
+- Status
+- Reporter
+- Assignee
+- Screenshots / Logs
+
+---
+
+
+
+# Root Cause Analysis (RCA)
+
+
+
+## What is Root Cause Analysis?
+
+Finding the actual reason why the defect happened instead of only fixing the symptom.
+
+Example
+
+Problem:
+
+Login fails.
+
+Immediate Fix:
+
+Correct SQL query.
+
+Root Cause:
+
+Requirements misunderstood by developers.
+
+Goal:
+
+Prevent similar defects in the future.
+
+---
+
+
+
+# 6. Estimation Techniques
+
+Why estimate?
+
+- Planning
+- Budget
+- Sprint planning
+- Resource allocation
+
+Common techniques:
+
+- Expert Judgment
+- Planning Poker
+- T-Shirt Sizing
+- Story Points
+- Three-Point Estimation
+
+---
+
+
+
+# 7. Requirement Types
+
+
+
+## Business Requirements
+
+High-level business goals.
+
+Example:
+
+"The customer wants online payments."
+
+---
+
+
+
+## Functional Requirements
+
+Describe what the system should do.
+
+Example:
+
+"The user shall be able to log in."
+
+---
+
+
+
+## Non-Functional Requirements
+
+Describe quality attributes.
+
+Examples:
+
+- Performance
+- Security
+- Scalability
+- Usability
+
+---
+
+
+
+## Technical Requirements
+
+Technology constraints.
+
+Example:
+
+"The application shall use PostgreSQL."
+
+---
+
+
+
+# 8. Use Case vs User Story
+
+
+
+## User Story
+
+Agile requirement.
+
+Example:
+
+"As a customer, I want to log in so that I can access my account."
+
+---
+
+
+
+## Use Case
+
+Detailed interaction.
+
+Example:
+
+Actor:
+
+Customer
+
+Steps:
+
+1. Open login page.
+2. Enter credentials.
+3. Click Login.
+4. Home page displayed.
+
+---
+
+
+
+## Difference
+
+| User Story | Use Case |
+
+|------------|----------|
+
+| High-level | Detailed |
+
+| Focus on value | Focus on interaction |
+
+| Agile | Traditional |
+
+---
+
+
+
+# 9. Requirement Analysis Techniques
+
+Common techniques:
+
+- Requirement Review
+- User Story Analysis
+- Acceptance Criteria Analysis
+- Use Case Analysis
+- Stakeholder Interviews
+- Workshops
+- Document Analysis
+- Risk Analysis
+- Prototype Analysis
+
+Goal:
+
+Understand requirements before creating tests.
+
+---
+
+
+
+# 10. Functional Testing
+
+
+
+## What is Functional Testing?
+
+Functional testing verifies **what** the system does.
+
+Examples:
+
+- Login
+- Registration
+- Checkout
+- Search
+
+Question:
+
+"Does the feature work correctly?"
+
+---
+
+
+
+# Functional vs Non-Functional
+
+Functional
+
+✔ Login works
+
+✔ Search works
+
+Non-functional
+
+✔ Fast
+
+✔ Secure
+
+✔ Stable
+
+✔ Scalable
+
+---
+
+
+
+# 11. Test Case Management
+
+Test case management is the process of creating, organizing, executing and maintaining test cases.
+
+Activities:
+
+- Create
+- Review
+- Prioritize
+- Execute
+- Update
+- Archive
+
+Popular tools:
+
+- Jira
+- TestRail
+- Zephyr
+- Xray
+
+---
+
+
+
+# 12. Testing Documents
+
+Common documents:
+
+- Test Plan
+- Test Strategy
+- Test Cases
+- Test Scenarios
+- Test Data
+- Defect Reports
+- Test Summary Report
+- Traceability Matrix (RTM)
+
+---
+
+
+
+# 13. Black Box, White Box & Gray Box Testing
+
+
+
+## Black Box Testing
+
+Tester does **not** know the internal code.
+
+Focus:
+
+Inputs and outputs.
+
+Usually performed by QA.
+
+Example:
+
+Test login without looking at the implementation.
+
+---
+
+
+
+## White Box Testing
+
+Tester knows the source code.
+
+Focus:
+
+Code structure, branches, conditions, paths.
+
+Usually performed by developers.
+
+---
+
+
+
+## Gray Box Testing
+
+Tester has partial knowledge of the system.
+
+Examples:
+
+- API documentation
+- Database schema
+- Architecture
+
+Very common in automation testing.
+
+---
+
+
+
+# Quick Interview Answers
+
+
+
+## Why negative testing?
+
+To verify the application handles invalid input correctly and does not crash.
+
+---
+
+
+
+## Why prioritize test cases?
+
+To execute the most critical tests first when time or resources are limited.
+
+---
+
+
+
+## Defect vs Bug?
+
+Defect = observed incorrect behavior.
+
+Bug = coding error causing the defect.
+
+---
+
+
+
+## Scrum vs Kanban?
+
+Scrum uses fixed sprints.
+
+Kanban uses continuous workflow.
+
+---
+
+
+
+## Waterfall vs Scrum?
+
+Waterfall is sequential and suitable for stable requirements.
+
+Scrum is iterative and suitable for changing requirements.
+
+---
+
+
+
+## Use Case vs User Story?
+
+User Story describes what the user wants.
+
+Use Case describes how the user interacts with the system.
+
+---
+
+
+
+## Black Box vs White Box vs Gray Box?
+
+Black Box: no code knowledge.
+
+White Box: full code knowledge.
+
+Gray Box: partial knowledge.
