@@ -20,7 +20,7 @@ Because without it:
 - software might crush unexpectedly
 - the software might produce unpredictable results
 - there might be security vulnerabilities
-- user's data mightb get lost
+- user's data might get lost
 - overal poor user experience
 
 1. **What is the difference between verification and validation?**
@@ -40,7 +40,7 @@ Error happens because of human mistake during development, defect is a result/fl
 
 1. **What is the Software Testing Life Cycle (STLC)?**
 
-STLC is a structured process that defines the phases and activities performed by the testing team to ensure software quality.It starts with requiremnt analysis and end with test closure and reporting.
+STLC is a structured process that defines the phases and activities performed by the testing team to ensure software quality.It starts with requirement analysis and end with test closure and reporting.
 
 ```mermaid
 graph TD
@@ -133,7 +133,7 @@ A[\unit unit unit/] --> B[\integration/] --> C[\E2E/]
 
 1. **What is Shift Left Testing?**
 
-Is the practice of perfoming testing activities earlier in  the software development lif cycle(sdlc) in order to find defects as soon as possible.
+Is the practice of perfoming testing activities earlier in  the software development life cycle(sdlc) in order to find defects as soon as possible.
 
 ---
 
@@ -629,7 +629,7 @@ Deployment
 - Requirements are fixed.
 - Government projects.
 - Banking systems with strict documentation.
-- Small projects with little change.
+- Projects with little change.
 
 ---
 
@@ -875,7 +875,7 @@ Main ideas:
 
 - Visualize work
 - Limit Work In Progress (WIP)
--  continuous flow of work
+- continuous flow of work
 - Improve workflow
 
 ---
@@ -1004,12 +1004,21 @@ The application should handle invalid input gracefully without crashing.
 Common techniques:
 
 - Equivalence Partitioning
+Instead of testing every possible value, we devide inputs into groups(partitions) where the system should behave similarly.
+We assume if one value from a group works, the other values from the same group should behave similarly.
 - Boundary Value Analysis
+Idea: Most bugs happen at the edges of allowed ranges, so we test boundaries.
 - Decision Table Testing
+Idea: Used when there are multiple conditions and different combinations that create different results.
 - State Transition Testing
+Is used when the system behavior changes depending on its current state.The system moves between states.
 - Use Case Testing
+Testing based on user actions and bussiness flow.
 - Pairwise Testing
+When many combinations exist, test every possible pair of values instead of every combination.
 - Error Guessing
+A tester uses experience and ituition to predict where bugs might exist.
+It is based on previous bugs, developer mistakes and common failures.
 
 Example:
 
@@ -1119,10 +1128,15 @@ Why estimate?
 Common techniques:
 
 - Expert Judgment
+An experienced person estimates the effort based on their knowledge and previous projects.
 - Planning Poker
+It is a collaborative estimation technique where team members independently estimate the effort of a task using cards, discuss differences and agree on a final estimate.
 - T-Shirt Sizing
+T-Shirt Sizing estimates work using relative sizes such as Small, Medium, and Large instead of exact numbers.
 - Story Points
+Measures complexity,risk,uncertainty and effort not time
 - Three-Point Estimation
+Three-Point Estimation considers optimistic, most likely, and pessimistic scenarios to produce a more balanced estimate.
 
 ---
 
@@ -1189,11 +1203,13 @@ Example:
 
 ## User Story
 
-Agile requirement.
+A **User Story** is a short, simple description of a feature from the user's perspective.
 
-Example:
+It is commonly used in Agile/Scrum
 
-"As a customer, I want to log in so that I can access my account."
+It answers:
+
+"What does the user want?"
 
 ---
 
@@ -1201,15 +1217,13 @@ Example:
 
 ## Use Case
 
-Detailed interaction.
+Detailed description of how the user interacts with the system to achieve a goal.
+
+It answers:
+
+"How does the user acomplish the goal?"
 
 Example:
-
-Actor:
-
-Customer
-
-Steps:
 
 1. Open login page.
 2. Enter credentials.
@@ -1238,21 +1252,88 @@ Steps:
 
 # 9. Requirement Analysis Techniques
 
+Requirement Analysis is the process of understanding, reviewing, and validating the project requirements **before development or testing begins**.
+
 Common techniques:
 
-- Requirement Review
-- User Story Analysis
-- Acceptance Criteria Analysis
-- Use Case Analysis
-- Stakeholder Interviews
-- Workshops
-- Document Analysis
-- Risk Analysis
-- Prototype Analysis
+- *Requirement Review*
+Requirement Review is the process of reading and evaluating requirements to ensure they are complete, clear, consistent, and testable before testing begins.
 
-Goal:
+Example:
+*Requirement:*
+"The system should be fast"
 
-Understand requirements before creating tests.
+*Problem:*
+What does fast mean?
+- 1 second?
+- 5 seconds?
+- 10 seconds?
+
+A QA should ask:
+"Can we define a measurable response time?"
+
+It becomes:
+"The system should search results within 2 seconds."
+
+Now it's testable.
+
+
+
+- *User Story Analysis*
+User Story Analysis involves reviewing user stories to understand the user's goal, business value, and possible test scenarios.
+The QA analyzes the User Story to understand:
+What the user wants.
+Why they want it.
+What needs to be tested.
+
+- *Acceptance Criteria Analysis*
+Acceptance Criteria Analysis ensures that all conditions required for a feature to be accepted are understood and covered by test cases.
+This is one of the most important techniques.
+Acceptance Criteria define:
+When is the feature considered complete?
+
+Example:
+
+User Story:
+As a customer,
+I want to log in.
+Acceptance Criteria:
+Valid credentials allow login.
+Invalid credentials display an error.
+Password is hidden.
+Locked users cannot log in.
+The QA writes test cases directly from these criteria.
+
+- *Use Case Analysis*
+Use Case Analysis examines user-system interactions step by step to understand business workflows and identify test scenarios.
+
+- *Stakeholder Interviews*
+Stakeholder Interviews involve discussing requirements with business stakeholders to clarify expectations and resolve ambiguities.
+
+- *Workshops*
+Workshops bring different team members together to discuss, clarify, and agree on project requirements.
+
+- *Document Analysis*
+Document Analysis involves reviewing project documents to understand system functionality and prepare test cases.
+
+- *Risk Analysis*
+Risk Analysis identifies features with the highest business impact or technical risk so testing can focus on the most critical areas.
+
+- *Prototype Analysis*
+Prototype Analysis reviews mockups or prototypes to identify usability issues, missing functionality, or unclear requirements before development starts.
+
+
+To put them together:
+1) Requirement Review - are the requirements clearb and testable?
+2) User Story Analysis - what does the user wants?
+3) Acceptance criteria analysis - how do i know if the feature is complete?
+4) Use case analysis - How does the user use the feature?
+5) Risk analysis - What is most important to test?
+6) stakeholder interviews - who can answer my questions?
+7) workshops - can the team agree on the requirements together?
+8) document analysis - What existing documentation can help me?
+9) prototype analysis - Can we find problems before development starts?
+
 
 ---
 
