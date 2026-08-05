@@ -11,6 +11,13 @@ var oldVariable = "avoid";  // old syntax
 ```
 
 ### When to use
+#### The main differences between var, let, and const are:
+- Scope (where the variable can be accessed)
+- Reassignment (can the value change?)
+- Redeclaration (can you declare it again?)
+- Hoisting (how JavaScript handles it before execution)
+
+var is function-scoped and allows redeclaration and reassignment. let is block-scoped and allows reassignment but not redeclaration. const is also block-scoped but cannot be reassigned. In modern JavaScript, const is preferred by default, and let is used when the value needs to change.
 
 - `const` → default choice
 - `let` → when value changes
@@ -238,6 +245,8 @@ user["username"]
 ---
 
 # 11. Destructuring
+Destructuring in JavaScript is a way to extract values from arrays or properties from objects and store them into variables using a shorter syntax.
+
 
 ```javascript
 const user={
@@ -499,6 +508,23 @@ Modern projects use ES Modules.
 
 # 24. Classes
 
+## *What is a Class?*
+A class is a blueprint used to create objects.
+It defines:
+Properties (data)
+Methods (behavior)
+
+
+## *What is an Object?*
+An object is an instance of a class.
+
+```js
+const user=new User('John');
+// every object has its own data
+```
+
+
+
 ```javascript
 class LoginPage{
 
@@ -513,7 +539,24 @@ class LoginPage{
 }
 ```
 
-Inheritance
+## *Constructor:*
+The constructor is a special method that runs automatically when an object is created.
+
+
+```js
+class User{
+
+    constructor(name){
+
+        this.name=name;
+
+    }
+
+}
+```
+
+
+## Inheritance
 
 ```javascript
 class LoginPage
@@ -521,6 +564,120 @@ extends Page{
 
 }
 ```
+
+## super()
+Used to call the parent class constructor.
+
+
+```js
+class Animal{
+
+    constructor(name){
+
+        this.name=name;
+
+    }
+
+}
+
+class Dog extends Animal{
+
+    constructor(name){
+
+        super(name);
+
+    }
+
+}
+```
+
+## Method Overriding (Polymorphism)
+A child class can replace a parent's implementation.
+Polymorphism means the same method name can have different behavior depending on the object.
+
+```js
+class Animal{
+
+    speak(){
+
+        console.log("Animal");
+
+    }
+
+}
+
+class Dog extends Animal{
+
+    speak(){
+
+        console.log("Woof");
+
+    }
+
+}
+
+//Now
+new Dog().speak();
+//prints
+//Woof
+//This is an example of polymorphism.
+
+```
+
+
+## Encapsulation
+Encapsulation means keeping data and behavior together inside a class while controlling access to the internal data.
+Example:
+
+```js
+class BankAccount{
+
+    #balance=0;
+
+    deposit(amount){
+
+        this.#balance+=amount;
+
+    }
+
+    getBalance(){
+
+        return this.#balance;
+
+    }
+
+}
+//Private fields begin with #.
+//They cannot be accessed outside the class.
+
+```
+
+## Abstraction
+Abstraction means exposing only what users need while hiding implementation details.
+Example:
+Instead of knowing how login works internally, a test simply calls:
+await LoginPage.login(username,password);
+The test doesn't care how the clicks and typing are implemented.
+
+# OOP Principles
+
+Encapsulation -	Bundle data and methods together while controlling access to data.
+Inheritance -	A class can inherit from another class using extends.
+Polymorphism -	The same method can behave differently in different classes.
+Abstraction -	Hide implementation details and expose only what users need.
+
+# Easy Memory Trick:
+
+- Class → Blueprint
+- Object → Instance
+- Constructor → Initializes object
+- this → Current object
+- Inheritance → Reuse code
+- Encapsulation → Protect data
+- Polymorphism → Same method, different behavior
+- Abstraction → Hide complexity
+- Static → Utility method, no object needed
+
 
 ---
 
@@ -777,6 +934,7 @@ Represents a future value.
 ### What is destructuring?
 
 Extract values from objects or arrays.
+ or more formal destructuring in JavaScript is a way to extract values from arrays or properties from objects and store them into variables using a shorter syntax.
 
 ---
 
@@ -817,6 +975,12 @@ find()
 
 returns first
 ```
+
+### template literals:
+Template literals are a way to create strings using **backticks ()** instead of normal quotes ('or"`). They allow you to:
+Insert variables directly into strings (interpolation)
+Write multi-line strings easily
+Include expressions inside strings(anything that evaluates value)
 
 ---
 

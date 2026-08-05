@@ -167,28 +167,69 @@ Examples:
 - Frontend<->Backend
 - Service<->External API
 
-1. What is system testing?
-2. What is end-to-end testing?
-3. What is smoke testing?
-4. What is sanity testing?
-5. What is regression testing?
-6. What is acceptance testing?
-7. What is the difference between smoke and regression testing?
-8. What is the difference between system testing and end-to-end testing?
+1. **What is system testing?**
+System testing verifies the complete, integrated application as a whole.
+Everything runs together.
+
+
+2. **What is end-to-end testing?**
+End-to-End testing simulates real user behaviour from start to finish.
+
+3. **What is smoke testing?**
+Smoke testing is a small collection of tests that verifies whether the most critical functionality works after a new build.
+Think of it as a health check.
+
+
+4. **What is sanity testing?**
+Sanity testing verifies that a specific change or bug fix works as expected.
+It has a narrower scope than smoke testing.
+Quickly validate recent changes.
+
+5. **What is regression testing?**
+Regression testing ensures that recent code changes have not broken existing functionality.
+Detect unintended side effects.
+
+6. **What is acceptance testing?**
+Acceptance testing verifies that the software satisfies business and customer requirements.
+Usually performed before release.
+Determine whether the application is ready for production.
+
+7. **What is the difference between smoke and regression testing?**
+Smoke testing is a small collection of tests that verifies whether the most critical functionality works after a new build.
+Think of it as a health check.
+Regression testing ensures that recent code changes have not broken existing functionality.
+Detect unintended side effects.
+
+8. **What is the difference between system testing and end-to-end testing?**
+End-to-End testing simulates real user behaviour from start to finish.
+System testing verifies the complete, integrated application as a whole.
+Everything runs together.
+
 9. **What is the difference between functional and non-functional testing?**
+Functional testing verifies what the application does. It checks that features work according to the functional requirements and that the application behaves as expected.
+Non-functional testing verifies how well the application works. It evaluates quality attributes such as performance, security, usability, reliability, and scalability.
 
-Functional testing verifies that the software behaves according to functional requirements.
-It answers the question:
-"Does the application do what it is supposed to do?"
 
-Non-functional testing verifies how ell a system works rather than what it does. It focuses on quality such as perfomance, security, usability, reliability and scalability.
+1. **What is performance testing?**
+Performance testing measures speed, responsiveness, and stability of the software application.
+It is used to identify performance bottlenecks and we use it before production or after major performance-related changes.
 
-1. What is performance testing?
-2. What is load testing?
-3. What is stress testing?
-4. What is security testing?
-5. What is accessibility testing?
-6. What is usability testing?
+2. **What is load testing?**
+Load testing checks system behaviour under expected user traffic.
+We used it to verify the application performs well under normal load and we do it before production launches or expected traffic increases.
+
+3. **What is stress testing?**
+Stress testing pushes the system beyond its expected limits in order to determine breaking points and recovery behaviour and use it in high-risk systems or capacity planning.
+
+4. **What is security testing?**
+Security testing verifies that the application protects data and resists attacks, it is used to identify vulnerabilities and we use it throughout development and before release.
+
+5. **What is accessibility testing?**
+Accessibility testing ensures that people with disabilities can use the application in order to meet accessibility standards and improve usability for everyone.
+
+6. **What is usability testing?**
+Usability testing evaluates how easy and intuitive the application is to use in order to improve the user experience.
+
 
 
 
@@ -197,10 +238,64 @@ Non-functional testing verifies how ell a system works rather than what it does.
 
 
 ### a) api testing concepts
-
-
+# What is API Testing?
+API (Application Programming Interface) testing verifies that the application's backend services work correctly by sending HTTP requests directly to the API, without using the user interface.
+It validates business logic, status codes, response bodies, headers, authentication, and response times without using the user interface. API testing is generally faster, more reliable, and easier to automate than UI testing, making it an important part of automated testing.
 
 ### b) sql basics
+
+# What is SQL?
+SQL (Structured Query Language) is the standard language used to communicate with relational databases.
+
+As a QA Engineer, SQL is commonly used to:
+- Verify data stored in the database.
+- Validate test results.
+- Check whether inserts, updates, or deletes were successful.
+- Prepare test data.
+- Investigate bugs.
+
+## Basic SQL Syntax
+
+```js
+SELECT column_name
+FROM table_name
+WHERE condition
+```
+
+## SELECT
+
+```js
+//retrieves data from a table
+SELECT * FROM users;
+//returns all users
+
+```
+
+```js
+SELECT username, email
+FROM users;
+//retrieve specific columns
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ---
 
