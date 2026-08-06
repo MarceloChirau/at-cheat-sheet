@@ -303,26 +303,249 @@ FROM users;
 
 # Automation Fundamentals
 
-1. What is test automation?
-2. What are the advantages of automation?
-3. What should NOT be automated?
-4. What makes a good automated test?
-5. What is a flaky test?
-6. How do you reduce flaky tests?
-7. What is data-driven testing?
-8. What is parameterization?
-9. What are fixtures?
-10. What is Faker?
-11. What is the Page Object Model (POM)?
-12. Why should tests be independent?
-13. What are explicit waits?
-14. Why should browser.pause() be avoided?
-15. What makes a good selector?
-16. What is AAA (Arrange, Act, Assert)?
-17. What is DRY?
-18. Why use SOLID in automation frameworks?
-19. What is test isolation?
-20. What is mocking?
+1. *What is test automation?*
+Test Automation is the process of using software tools and scripts to execute test cases automatically instead of performing them manually.
+The goal is to verify that the application behaves as expected while reducing manual effort and increasing test execution speed.
+
+2. *What are the advantages of automation?*
+- Faster test execution
+- Saves time for repetitive tests
+- Improves test coverage
+- Reduces human errors
+- Enables parallel execution
+- Supports Continuous Integration and Continuous Delivery (CI/CD)
+- Provides repeatable and consistent results
+- Allows unattended execution (overnight or scheduled runs)
+- Speeds up regression testing
+
+3. *What should NOT be automated?*
+Not every test is a good candidate for automation.
+- Tests that usually should NOT be automated
+- Exploratory testing
+- Usability testing
+- User Experience (UX) testing
+- One-time or rarely executed tests
+- Frequently changing features
+- Very small features where automation costs more than manual testing
+- Tests requiring human judgment (visual appearance, design, user - friendliness)
+
+
+4. *What makes a good automated test?*
+A good automated test should be:
+- Reliable
+- Independent
+- Fast
+- Easy to understand
+- Easy to maintain
+- Repeatable
+- Stable
+- Focused on one scenario
+- Able to produce consistent results
+
+5. *What is a flaky test?*
+A flaky test is a test that sometimes passes and sometimes fails without any changes to the application code.
+The failure is caused by the test itself or by unstable test conditions.
+
+6. *How do you reduce flaky tests?*
+Flaky tests can be reduced by improving test stability.
+Best Practices:
+- Use explicit waits instead of fixed delays
+- Wait for elements to become visible or clickable
+- Use stable selectors (IDs, data-testid)
+- Avoid shared test data
+- Make tests independent
+- Reset test data before execution
+- Mock unstable external services when appropriate
+- Ensure stable test environments
+- Review and refactor flaky tests regularly
+
+
+7. *What is data-driven testing?*
+Data-Driven Testing is a testing approach where the same test is executed multiple times using different sets of input data.
+The test logic remains the same, but the input values change.
+
+8. *What is parameterization?*
+Parameterization is the technique of passing different values into a test or function without changing the test logic.
+It is one of the mechanisms used to implement Data-Driven Testing.
+
+## Difference from Data-Driven Testing
+Parameterization is the technique of passing different values to a test or function.
+Data-Driven Testing is the testing approach that repeatedly executes the same test using different datasets, often implemented through parameterization.
+
+9. *What are fixtures?*
+Difference from Data-Driven Testing
+Parameterization is the technique of passing different values to a test or function.
+Data-Driven Testing is the testing approach that repeatedly executes the same test using different datasets, often implemented through parameterization.
+
+10. *What is Faker?*
+Faker is a JavaScript library used to generate realistic fake data for testing.
+Instead of manually creating test values, Faker generates random but realistic information.
+
+
+11. *What is the Page Object Model (POM)?*
+The Page Object Model (POM) is a design pattern used in test automation where each web page (or component) is represented by a class.
+The class contains:
+- Element locators
+- Methods (actions)
+- Page-specific logic
+The actual test only calls these methods instead of interacting with elements directly.
+
+## Advantages
+- Reusable code
+- Easier maintenance
+- Better readability
+- Less duplicated code
+- Centralized locators
+- Easier updates when the UI changes
+
+
+
+12. *Why should tests be independent?*
+Each test should be able to run on its own without depending on another test.
+If one test fails, it should not cause other tests to fail.
+Independent tests can run in any order without relying on other tests. This improves reliability, debugging, and parallel execution.
+
+13. *What are explicit waits?*
+Explicit waits tell the test to wait until a specific condition becomes true before continuing.
+
+Examples:
+
+- Element is displayed
+- Element is clickable
+- Element exists
+- Text appears
+- URL changes
+
+Instead of waiting a fixed amount of time, the test waits only as long as necessary.
+
+Advantages:
+
+- Faster execution
+- More stable tests
+- Fewer flaky tests
+
+14. *Why should browser.pause() be avoided?*
+browser.pause() always waits for a fixed amount of time, regardless of whether the application is ready sooner.
+
+Example:
+
+browser.pause(5000);
+Even if the page loads in one second, the test still waits five seconds.
+If the page takes longer than five seconds, the test may still fail.
+Problems
+Slower tests
+Flaky tests
+Poor synchronization
+Wasted execution time
+
+
+15. *What makes a good selector?*
+A good selector is:
+- Stable
+- Unique
+- Readable
+- Unlikely to change
+
+
+16. *What is AAA (Arrange, Act, Assert)?*
+AAA is a pattern used to organize test cases.
+
+Arrange
+Prepare the test.
+const username = "standard_user";
+
+Act
+Perform the action.
+await LoginPage.login(username, password);
+
+Assert
+Verify the result.
+await expect(HomePage.title).toBeDisplayed();
+
+Benefits:
+- Cleaner tests
+- Easier maintenance
+- Better readability
+
+
+17. *What is DRY?*
+Don't Repeat Yourself
+It encourages writing reusable code instead of duplicating it.
+
+
+18. *Why use SOLID in automation frameworks?*
+SOLID is a set of object-oriented design principles that make code more maintainable, flexible, and easier to extend.
+
+*The Five Principles*
+**S — Single Responsibility Principle**
+Each class should have one responsibility.
+Example:
+LoginPage handles login.
+CartPage handles the shopping cart.
+
+**O — Open/Closed Principle**
+Classes should be open for extension but closed for modification.
+Example:
+Add a new payment method by extending existing code instead of changing tested code.
+
+**L — Liskov Substitution Principle**
+Child classes should be replaceable with their parent classes without breaking functionality.(extensions must behave like the original)
+
+**I — Interface Segregation Principle**
+Classes should not depend on methods they don't need or use.
+(JavaScript doesn't have interfaces like Java or C#, but the principle still encourages keeping APIs focused.)
+
+**D — Dependency Inversion Principle**
+Depend on abstractions rather than concrete implementations.(no need to know the inner works)
+This improves flexibility and testability.
+Benefits
+Easier maintenance
+Better scalability
+Cleaner architecture
+More reusable code
+
+19. *What is test isolation?*
+A test isolation means every test runs in its own clean environment.
+A test should not depend on:
+- Previous tests
+- Shared data
+- Shared browser state
+- Cookies
+- Local storage
+- Session data
+
+20. *What is mocking?*
+Mocking means replacing a real dependency with a fake or simulated version during testing.
+Instead of calling an actual external system, the test uses predefined responses.
+
+Example
+
+Suppose your application calls:
+Payment API
+Instead of sending a real payment,
+the test uses a mock that returns:
+
+```js
+{
+  "status": "success"
+}
+```
+
+**Why Use Mocking?**
+- Faster tests
+- More reliable tests
+- No dependency on external services
+- Easier to simulate error scenarios
+- Lower testing costs
+
+*Common Things to Mock*
+- REST APIs(representational state transfer api is way for 2 applications to communicate over http, like a messenger between a client and a server)
+- Databases
+- Payment services
+- Authentication services
+- Third-party integrations
+
+
 
 ---
 
