@@ -638,15 +638,34 @@ but if we do the same with var or const:
 //prints referenceError
 ```
 
-1. What are arrow functions?
-2. What are callbacks?
-3. What are ES Modules?
-4. What is CommonJS?
-5. What is package.json?
-6. What is npm?
-7. What is Node.js?
-8. What are environment variables?
-9. What is .env?
+1. **What are arrow functions?**
+Arrow functions are a shorter syntax for defining functions in JavaScript. One important difference is that arrow functions don't have their own this; they inherit this from the surrounding scope."
+
+2. **What are callbacks?**
+A callback is a function that is passed to another function as an argument and is called later, usually after a certain operation is completed.
+
+3. **What are ES Modules?**
+ES Modules are JavaScript's standard module system. They allow us to split code into separate files and share functionality between them using export and import."
+
+4. **What is CommonJS?**
+CommonJs is the module js system commonly use in Node.js, that allow us to split code into separate files and share functionality between them using module.exports and const ...=require('..')
+
+5. **What is package.json?**
+It is the congigurationa file in a Node.js project and it includes information about the project, the title, version, dependecies, devDependecies,scripts and metadata.
+
+6. **What is npm?**
+npm stands for Node Package Manager. It is a package manager for JavaScript/Node.js that allows us to install, manage, update, and remove packages and dependencies used in our projects.
+
+7. **What is Node.js?**
+Is a javascript runtime environment that allowes javascript to run outside of the browser.
+
+8. **What are environment variables?**
+Environment variables are values provided by the operating system or environment that can be used by an application at runtime. They are commonly used to store configuration that can change between environments, such as URLs, ports, API keys, or credentials.
+
+9. **What is .env?**
+A .env file is a file used to store environment variables and configuration values, such as URLs, API keys, credentials, and other settings that may differ between environments.
+
+
 
 ---
 
