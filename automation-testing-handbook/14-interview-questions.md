@@ -168,91 +168,110 @@ Examples:
 - Service<->External API
 
 1. **What is system testing?**
+
 System testing verifies the complete, integrated application as a whole.
 Everything runs together.
 
+1. **What is end-to-end testing?**
 
-2. **What is end-to-end testing?**
 End-to-End testing simulates real user behaviour from start to finish.
 
-3. **What is smoke testing?**
+1. **What is smoke testing?**
+
 Smoke testing is a small collection of tests that verifies whether the most critical functionality works after a new build.
 Think of it as a health check.
 
+1. **What is sanity testing?**
 
-4. **What is sanity testing?**
 Sanity testing verifies that a specific change or bug fix works as expected.
 It has a narrower scope than smoke testing.
 Quickly validate recent changes.
 
-5. **What is regression testing?**
+1. **What is regression testing?**
+
 Regression testing ensures that recent code changes have not broken existing functionality.
 Detect unintended side effects.
 
-6. **What is acceptance testing?**
+1. **What is acceptance testing?**
+
 Acceptance testing verifies that the software satisfies business and customer requirements.
 Usually performed before release.
 Determine whether the application is ready for production.
 
-7. **What is the difference between smoke and regression testing?**
+1. **What is the difference between smoke and regression testing?**
+
 Smoke testing is a small collection of tests that verifies whether the most critical functionality works after a new build.
 Think of it as a health check.
 Regression testing ensures that recent code changes have not broken existing functionality.
 Detect unintended side effects.
 
-8. **What is the difference between system testing and end-to-end testing?**
+1. **What is the difference between system testing and end-to-end testing?**
+
 End-to-End testing simulates real user behaviour from start to finish.
 System testing verifies the complete, integrated application as a whole.
 Everything runs together.
 
-9. **What is the difference between functional and non-functional testing?**
+1. **What is the difference between functional and non-functional testing?**
+
 Functional testing verifies what the application does. It checks that features work according to the functional requirements and that the application behaves as expected.
 Non-functional testing verifies how well the application works. It evaluates quality attributes such as performance, security, usability, reliability, and scalability.
 
-
 1. **What is performance testing?**
+
 Performance testing measures speed, responsiveness, and stability of the software application.
 It is used to identify performance bottlenecks and we use it before production or after major performance-related changes.
 
-2. **What is load testing?**
+1. **What is load testing?**
+
 Load testing checks system behaviour under expected user traffic.
 We used it to verify the application performs well under normal load and we do it before production launches or expected traffic increases.
 
-3. **What is stress testing?**
+1. **What is stress testing?**
+
 Stress testing pushes the system beyond its expected limits in order to determine breaking points and recovery behaviour and use it in high-risk systems or capacity planning.
 
-4. **What is security testing?**
+1. **What is security testing?**
+
 Security testing verifies that the application protects data and resists attacks, it is used to identify vulnerabilities and we use it throughout development and before release.
 
-5. **What is accessibility testing?**
+1. **What is accessibility testing?**
+
 Accessibility testing ensures that people with disabilities can use the application in order to meet accessibility standards and improve usability for everyone.
 
-6. **What is usability testing?**
+1. **What is usability testing?**
+
 Usability testing evaluates how easy and intuitive the application is to use in order to improve the user experience.
-
-
-
 
 ### extra
 
 
 
 ### a) api testing concepts
+
+
+
 # What is API Testing?
+
 API (Application Programming Interface) testing verifies that the application's backend services work correctly by sending HTTP requests directly to the API, without using the user interface.
 It validates business logic, status codes, response bodies, headers, authentication, and response times without using the user interface. API testing is generally faster, more reliable, and easier to automate than UI testing, making it an important part of automated testing.
 
 ### b) sql basics
 
+
+
 # What is SQL?
+
 SQL (Structured Query Language) is the standard language used to communicate with relational databases.
 
 As a QA Engineer, SQL is commonly used to:
+
 - Verify data stored in the database.
 - Validate test results.
 - Check whether inserts, updates, or deletes were successful.
 - Prepare test data.
 - Investigate bugs.
+
+
 
 ## Basic SQL Syntax
 
@@ -261,6 +280,8 @@ SELECT column_name
 FROM table_name
 WHERE condition
 ```
+
+
 
 ## SELECT
 
@@ -277,26 +298,6 @@ FROM users;
 //retrieve specific columns
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ---
 
 
@@ -304,10 +305,12 @@ FROM users;
 # Automation Fundamentals
 
 1. *What is test automation?*
+
 Test Automation is the process of using software tools and scripts to execute test cases automatically instead of performing them manually.
 The goal is to verify that the application behaves as expected while reducing manual effort and increasing test execution speed.
 
-2. *What are the advantages of automation?*
+1. *What are the advantages of automation?*
+
 - Faster test execution
 - Saves time for repetitive tests
 - Improves test coverage
@@ -318,8 +321,10 @@ The goal is to verify that the application behaves as expected while reducing ma
 - Allows unattended execution (overnight or scheduled runs)
 - Speeds up regression testing
 
-3. *What should NOT be automated?*
+1. *What should NOT be automated?*
+
 Not every test is a good candidate for automation.
+
 - Tests that usually should NOT be automated
 - Exploratory testing
 - Usability testing
@@ -329,9 +334,10 @@ Not every test is a good candidate for automation.
 - Very small features where automation costs more than manual testing
 - Tests requiring human judgment (visual appearance, design, user - friendliness)
 
+1. *What makes a good automated test?*
 
-4. *What makes a good automated test?*
 A good automated test should be:
+
 - Reliable
 - Independent
 - Fast
@@ -342,13 +348,16 @@ A good automated test should be:
 - Focused on one scenario
 - Able to produce consistent results
 
-5. *What is a flaky test?*
+1. *What is a flaky test?*
+
 A flaky test is a test that sometimes passes and sometimes fails without any changes to the application code.
 The failure is caused by the test itself or by unstable test conditions.
 
-6. *How do you reduce flaky tests?*
+1. *How do you reduce flaky tests?*
+
 Flaky tests can be reduced by improving test stability.
 Best Practices:
+
 - Use explicit waits instead of fixed delays
 - Wait for elements to become visible or clickable
 - Use stable selectors (IDs, data-testid)
@@ -359,38 +368,41 @@ Best Practices:
 - Ensure stable test environments
 - Review and refactor flaky tests regularly
 
+1. *What is data-driven testing?*
 
-7. *What is data-driven testing?*
 Data-Driven Testing is a testing approach where the same test is executed multiple times using different sets of input data.
 The test logic remains the same, but the input values change.
 
-8. *What is parameterization?*
+1. *What is parameterization?*
+
 Parameterization is the technique of passing different values into a test or function without changing the test logic.
 It is one of the mechanisms used to implement Data-Driven Testing.
 
 ## Difference from Data-Driven Testing
+
 Parameterization is the technique of passing different values to a test or function.
 Data-Driven Testing is the testing approach that repeatedly executes the same test using different datasets, often implemented through parameterization.
 
-9. *What are fixtures?*
-Difference from Data-Driven Testing
-Parameterization is the technique of passing different values to a test or function.
-Data-Driven Testing is the testing approach that repeatedly executes the same test using different datasets, often implemented through parameterization.
+1. *What are fixtures?*
+2. *What is Faker?*
 
-10. *What is Faker?*
 Faker is a JavaScript library used to generate realistic fake data for testing.
 Instead of manually creating test values, Faker generates random but realistic information.
 
+1. *What is the Page Object Model (POM)?*
 
-11. *What is the Page Object Model (POM)?*
 The Page Object Model (POM) is a design pattern used in test automation where each web page (or component) is represented by a class.
 The class contains:
+
 - Element locators
 - Methods (actions)
 - Page-specific logic
 The actual test only calls these methods instead of interacting with elements directly.
 
+
+
 ## Advantages
+
 - Reusable code
 - Easier maintenance
 - Better readability
@@ -398,14 +410,14 @@ The actual test only calls these methods instead of interacting with elements di
 - Centralized locators
 - Easier updates when the UI changes
 
+1. *Why should tests be independent?*
 
-
-12. *Why should tests be independent?*
 Each test should be able to run on its own without depending on another test.
 If one test fails, it should not cause other tests to fail.
 Independent tests can run in any order without relying on other tests. This improves reliability, debugging, and parallel execution.
 
-13. *What are explicit waits?*
+1. *What are explicit waits?*
+
 Explicit waits tell the test to wait until a specific condition becomes true before continuing.
 
 Examples:
@@ -424,7 +436,8 @@ Advantages:
 - More stable tests
 - Fewer flaky tests
 
-14. *Why should browser.pause() be avoided?*
+1. *Why should browser.pause() be avoided?*
+
 browser.pause() always waits for a fixed amount of time, regardless of whether the application is ready sooner.
 
 Example:
@@ -438,16 +451,17 @@ Flaky tests
 Poor synchronization
 Wasted execution time
 
+1. *What makes a good selector?*
 
-15. *What makes a good selector?*
 A good selector is:
+
 - Stable
 - Unique
 - Readable
 - Unlikely to change
 
+1. *What is AAA (Arrange, Act, Assert)?*
 
-16. *What is AAA (Arrange, Act, Assert)?*
 AAA is a pattern used to organize test cases.
 
 Arrange
@@ -463,17 +477,18 @@ Verify the result.
 await expect(HomePage.title).toBeDisplayed();
 
 Benefits:
+
 - Cleaner tests
 - Easier maintenance
 - Better readability
 
+1. *What is DRY?*
 
-17. *What is DRY?*
 Don't Repeat Yourself
 It encourages writing reusable code instead of duplicating it.
 
+1. *Why use SOLID in automation frameworks?*
 
-18. *Why use SOLID in automation frameworks?*
 SOLID is a set of object-oriented design principles that make code more maintainable, flexible, and easier to extend.
 
 *The Five Principles*
@@ -504,9 +519,11 @@ Better scalability
 Cleaner architecture
 More reusable code
 
-19. *What is test isolation?*
+1. *What is test isolation?*
+
 A test isolation means every test runs in its own clean environment.
 A test should not depend on:
+
 - Previous tests
 - Shared data
 - Shared browser state
@@ -514,7 +531,8 @@ A test should not depend on:
 - Local storage
 - Session data
 
-20. *What is mocking?*
+1. *What is mocking?*
+
 Mocking means replacing a real dependency with a fake or simulated version during testing.
 Instead of calling an actual external system, the test uses predefined responses.
 
@@ -532,6 +550,7 @@ the test uses a mock that returns:
 ```
 
 **Why Use Mocking?**
+
 - Faster tests
 - More reliable tests
 - No dependency on external services
@@ -539,13 +558,12 @@ the test uses a mock that returns:
 - Lower testing costs
 
 *Common Things to Mock*
+
 - REST APIs(representational state transfer api is way for 2 applications to communicate over http, like a messenger between a client and a server)
 - Databases
 - Payment services
 - Authentication services
 - Third-party integrations
-
-
 
 ---
 
@@ -553,10 +571,26 @@ the test uses a mock that returns:
 
 # JavaScript
 
-1. Explain async/await.
-2. What is a Promise?
-3. What is the event loop?
-4. Difference between == and ===?
+1. **Explain async/await.**
+Async/await is a modern way to work with Promises and handle asynchronous operations in a synchronous-looking way. The async keyword makes a function return a Promise, while await pauses the execution of the async function until the Promise settles.
+
+
+2. **What is a Promise?**
+A Promise is an object that represents the eventual result of an asynchronous operation. It can be in one of three states: Pending, Fulfilled, or Rejected.
+
+3. **What is the event loop?**
+Is the mechanism that allowes javascript to run asynchronous operations even though js is running on a single thread. Simply it checks if the call stack is empty, and if it is then it moves waiting callbacks from the queue to the call-stack so they can execute.
+
+4. **Difference between == and ===?**
+== is loose equality and === is strictly equal, it checks also type equality, not just value, for example:
+
+```js
+5=='5'  //true, because of coersion
+//but
+5==='5' false // 5 number is not equal with 5 string,
+
+```
+
 5. **Difference between var, let, and const?**
 
 ```js
@@ -1583,6 +1617,7 @@ Example:
 
 *Problem:*
 What does fast mean?
+
 - 1 second?
 - 5 seconds?
 - 10 seconds?
@@ -1595,15 +1630,12 @@ It becomes:
 
 Now it's testable.
 
-
-
 - *User Story Analysis*
 User Story Analysis involves reviewing user stories to understand the user's goal, business value, and possible test scenarios.
 The QA analyzes the User Story to understand:
 What the user wants.
 Why they want it.
 What needs to be tested.
-
 - *Acceptance Criteria Analysis*
 Acceptance Criteria Analysis ensures that all conditions required for a feature to be accepted are understood and covered by test cases.
 This is one of the most important techniques.
@@ -1624,34 +1656,28 @@ The QA writes test cases directly from these criteria.
 
 - *Use Case Analysis*
 Use Case Analysis examines user-system interactions step by step to understand business workflows and identify test scenarios.
-
 - *Stakeholder Interviews*
 Stakeholder Interviews involve discussing requirements with business stakeholders to clarify expectations and resolve ambiguities.
-
 - *Workshops*
 Workshops bring different team members together to discuss, clarify, and agree on project requirements.
-
 - *Document Analysis*
 Document Analysis involves reviewing project documents to understand system functionality and prepare test cases.
-
 - *Risk Analysis*
 Risk Analysis identifies features with the highest business impact or technical risk so testing can focus on the most critical areas.
-
 - *Prototype Analysis*
 Prototype Analysis reviews mockups or prototypes to identify usability issues, missing functionality, or unclear requirements before development starts.
 
-
 To put them together:
-1) Requirement Review - are the requirements clearb and testable?
-2) User Story Analysis - what does the user wants?
-3) Acceptance criteria analysis - how do i know if the feature is complete?
-4) Use case analysis - How does the user use the feature?
-5) Risk analysis - What is most important to test?
-6) stakeholder interviews - who can answer my questions?
-7) workshops - can the team agree on the requirements together?
-8) document analysis - What existing documentation can help me?
-9) prototype analysis - Can we find problems before development starts?
 
+1. Requirement Review - are the requirements clear and testable?
+2. User Story Analysis - what does the user wants?
+3. Acceptance criteria analysis - how do i know if the feature is complete?
+4. Use case analysis - How does the user use the feature?
+5. Risk analysis - What is most important to test?
+6. stakeholder interviews - who can answer my questions?
+7. workshops - can the team agree on the requirements together?
+8. document analysis - What existing documentation can help me?
+9. prototype analysis - Can we find problems before development starts?
 
 ---
 
